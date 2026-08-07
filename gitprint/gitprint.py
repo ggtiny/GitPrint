@@ -14,7 +14,9 @@ def getuser(name):
 
 
 uinfo = getuser(user)
-if uinfo:
+if request.status_code == 404:
+    print("User could not be found. Try again.")
+else:
     print("~ ACCOUNT")
     print(f"Name: {uinfo["name"]}")
     print(f"Username: {uinfo["login"]}")
@@ -37,5 +39,3 @@ if uinfo:
     print(f"Public repo(s): {uinfo["public_repos"]}")
     print(f"Public gist(s): {uinfo["public_gists"]}")
     print()
-else:
-    print("User could not be found. Try again.")
